@@ -1,16 +1,13 @@
 package logic;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import entity.Battlefield;
-import entity.Cannon;
 
 
 
@@ -36,6 +33,7 @@ public class Handler {
 		mainFrame.setBackground(new Color(252, 233, 192));
 		mainFrame.setJMenuBar(game.getMenuBar());
 		mainFrame.add(game.getBattlefield());
+
 		/*mainFrame.setPreferredSize(new Dimension(900, 500));
 		mainFrame.pack();*/
 		mainFrame.setVisible(true);

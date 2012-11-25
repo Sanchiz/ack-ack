@@ -10,12 +10,38 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 public class Muzzle {
-	private Image muzzleModel = new ImageIcon("res/muzzle.png").getImage();
-	private Image muzzleFireModel = new ImageIcon("res/muzzleFire.png").getImage();
+	//private Image muzzleModel = new ImageIcon("res/muzzle.png").getImage();
+	private ArrayList<Image> muzzleModels;
 	private boolean fire = false;
 	private double angle;
 	private AffineTransform trans;
 	private int speed = 3;
+	private int state;
+	public int getState() {
+		return state;
+	}
+
+	public void setState(int state) {
+		this.state = state;
+	}
+	private int stateCount = 7;
+	public int getStateCount() {
+		return stateCount;
+	}
+
+	public void setStateCount(int stateCount) {
+		this.stateCount = stateCount;
+	}
+	private int reuse = 0;
+	
+	public int getReuse() {
+		return reuse;
+	}
+
+	public void setReuse(int reuse) {
+		this.reuse = reuse;
+	}
+
 	public int getSpeed() {
 		return speed;
 	}
@@ -31,18 +57,17 @@ public class Muzzle {
 	}
 	public Muzzle() {
 		this.setAngle(0);
+		this.state = 0;
+		muzzleModels = new ArrayList<Image>();
+		for(int i = 0; i < stateCount; i++) {
+			muzzleModels.add(new ImageIcon("res/muzzle_" + i + ".png").getImage());
+		}
 	}
 	public void paint(Graphics g, Dimension dim) {
 		Graphics2D g2d = (Graphics2D) g;
-		trans = new AffineTransform(1, 0.0, 0.0, 1, (dim.width / 2) - (muzzleModel.getWidth(null) / 2) + 10, dim.height - 220);
-		trans.rotate(Math.toRadians(angle), muzzleModel.getWidth(null) / 2, muzzleModel.getHeight(null));
-		if (fire) {
-			g2d.drawImage(muzzleFireModel, trans, null);
-		}
-		else {
-			g2d.drawImage(muzzleModel, trans, null);
-		}
-		setFire(false);
+		trans = new AffineTransform(1, 0.0, 0.0, 1, (dim.width / 2) - (muzzleModels.get(state).getWidth(null) / 2) + 10, dim.height - 220);
+		trans.rotate(Math.toRadians(angle), muzzleModels.get(state).getWidth(null) / 2, muzzleModels.get(state).getHeight(null));
+		g2d.drawImage(muzzleModels.get(state), trans, null);
 	}
 	
 	public void paintShot(Graphics g) {

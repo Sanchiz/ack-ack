@@ -17,6 +17,7 @@ public class Game {
 	private GameMenu menu;
 	private Battlefield battlefield;
 	
+	
 	AudioPlayer p = AudioPlayer.player;
 	AudioStream as;
 	
@@ -82,20 +83,21 @@ public class Game {
 			battlefield.getMuzzle().setAngle(battlefield.getMuzzle().getAngle() + battlefield.getMuzzle().getSpeed());
 		}
 		else if (key == KeyEvent.VK_CONTROL) {
-			battlefield.getMuzzle().setFire(true);
-			try {
-				as = new AudioStream(new FileInputStream("sound/shot.wav"));
-			} catch (FileNotFoundException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			p.start(as);
 			Muzzle muzzle = getBattlefield().getMuzzle();
-			getBattlefield().getWhizbangs().add(new Whizbang(muzzle.getTrans(), muzzle.getAngle()));
-			//JOptionPane.showMessageDialog(null, "POW POW!");
+			if (battlefield.getShotFreq() <= battlefield.getCurrentShot()) {
+				battlefield.getMuzzle().setFire(true);
+				try {
+					as = new AudioStream(new FileInputStream("sound/shot.wav"));
+				} catch (FileNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+				p.start(as);
+				getBattlefield().getWhizbangs().add(new Whizbang(muzzle.getTrans(), muzzle.getAngle()));
+				//JOptionPane.showMessageDialog(null, "POW POW!");
+				battlefield.setCurrentShot(0);
+			}
 		}
 	}
 	

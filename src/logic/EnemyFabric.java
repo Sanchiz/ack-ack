@@ -19,7 +19,7 @@ public class EnemyFabric implements Runnable {
 			Random rand = new Random();
 			try {
 				Thread.sleep(500 + rand.nextInt(1500));
-				enemies.add(new Enemy(-100, rand.nextInt(200), 1 + rand.nextInt(4)));
+					enemies.add(new Enemy(-100, rand.nextInt(200), 1 + rand.nextInt(4)));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
