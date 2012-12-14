@@ -32,8 +32,8 @@ public class Battlefield extends JPanel implements ActionListener {
 	private Image battlefieldBg = new ImageIcon("res/bg_battlefield.png").getImage();
 	private Image battlefieldClouds = new ImageIcon("res/battlefield_clouds.png").getImage();
 	private Image menuLogo = new ImageIcon("res/menu_logo.png").getImage();
-	private Image loseLogo = new ImageIcon("res/menu_logo.png").getImage();
-	private Image winLogo = new ImageIcon("res/menu_logo.png").getImage();
+	private Image loseLogo = new ImageIcon("res/menu_logo_lose.png").getImage();
+	private Image winLogo = new ImageIcon("res/menu_logo_win.png").getImage();
 	private Timer cloudTimer = new Timer(10, this);
 
 	private int level = 1;
@@ -204,7 +204,7 @@ public class Battlefield extends JPanel implements ActionListener {
 				if (enm.getX() < -100 || enm.getX() > 1500) {
 					iEnm.remove();
 					//@TODO clear game
-					//Handler.pause = "lose";
+					Handler.pause = "lose";
 				}
 				else if (enm.getState() >= enm.getStateCount() - 1) {
 					iEnm.remove();
@@ -277,5 +277,20 @@ public class Battlefield extends JPanel implements ActionListener {
 
 	public void setWhizbangs(ArrayList<Whizbang> whizbangs) {
 		this.whizbangs = whizbangs;
+	}
+	public void clearGame() {
+		this.setLevel(1);
+		shotPlains = 0;
+		currentTime = 0;
+		Iterator<Whizbang> iWhzbng = whizbangs.iterator();
+		while(iWhzbng.hasNext()) {
+			iWhzbng.next();
+			iWhzbng.remove();
+		}
+		Iterator<Enemy> iEnm = enemies.iterator();
+		while(iEnm.hasNext()) {
+			iEnm.next();
+			iEnm.remove();
+		}
 	}
 }

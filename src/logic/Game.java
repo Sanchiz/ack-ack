@@ -36,6 +36,7 @@ public class Game {
 	
 	public void startGame() {
 		battlefield.start();
+		battlefield.clearGame();
 		Handler.pause = "playing";
 	}
 	
@@ -95,7 +96,6 @@ public class Game {
 				}
 				p.start(as);
 				getBattlefield().getWhizbangs().add(new Whizbang(muzzle.getTrans(), muzzle.getAngle()));
-				//JOptionPane.showMessageDialog(null, "POW POW!");
 				battlefield.setCurrentShot(0);
 			}
 		}
