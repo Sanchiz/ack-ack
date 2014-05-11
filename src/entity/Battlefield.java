@@ -163,13 +163,13 @@ public class Battlefield extends JPanel implements ActionListener {
 			g.setFont(new Font("Serif", Font.BOLD | Font.ITALIC, 19));
 			g.setColor(Color.WHITE);
 			((Graphics2D) g).setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-			g.drawString("Правила игры", (dim.width / 2) - 100, 50);
+			g.drawString("Rules", (dim.width / 2) - 100, 50);
 			g.setFont(new Font("Serif", 0, 17));
-			drawString(g, "- Пушка стреляет с определенной частотой\n" +
-					"- После определенного времени скорость самолётов увеличивается\n" +
-					"- Задача - сбивать все самолёты в течение определённого времени\n" +
-					"- Выигрышь - сбить все самолёты на 3х уровнях\n" + 
-					"- Проигрыш - пропущенный самолёт", 200, 100);
+			drawString(g, "- Gun shoots with certain frequency\n" +
+					"- After certain time a speed of the plane will increase\n" +
+					"- Task - shoot down all plane within a certain time\n" +
+					"- Won - shoot all the planes on 3 levels\n" + 
+					"- Lose - missing plane", 200, 100);
 		}
 		else {
 			if (muzzle.getFire()) {

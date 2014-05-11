@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 public class Muzzle {
-	//private Image muzzleModel = new ImageIcon("res/muzzle.png").getImage();
 	private ArrayList<Image> muzzleModels;
 	private boolean fire = false;
 	private double angle;

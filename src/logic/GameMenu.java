@@ -16,25 +16,25 @@ public class GameMenu implements ActionListener,ItemListener {
 
 	public GameMenu() {
 		menuBar = new JMenuBar();
-		JMenu gameMenu = new JMenu("Игра");
+		JMenu gameMenu = new JMenu("Game");
 		
-		JMenuItem startItem = new JMenuItem("Начать");
+		JMenuItem startItem = new JMenuItem("Start");
 		startItem.addActionListener(this);
 		gameMenu.add(startItem);
 		
-		JMenuItem pauseItem = new JMenuItem("Пауза");
+		JMenuItem pauseItem = new JMenuItem("Pause");
 		pauseItem.addActionListener(this);
 		gameMenu.add(pauseItem);
 		
-		JMenuItem resumeItem = new JMenuItem("Продолжить");
+		JMenuItem resumeItem = new JMenuItem("Continue");
 		resumeItem.addActionListener(this);
 		gameMenu.add(resumeItem);
 		
-		JMenuItem helpItem = new JMenuItem("Правила игры");
+		JMenuItem helpItem = new JMenuItem("Rules");
 		helpItem.addActionListener(this);
 		gameMenu.add(helpItem);
 		
-		JMenuItem exitItem = new JMenuItem("Выход");
+		JMenuItem exitItem = new JMenuItem("Exit");
 		exitItem.addActionListener(this);
 		
 		menuBar.add(gameMenu);
@@ -53,21 +53,20 @@ public class GameMenu implements ActionListener,ItemListener {
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		//JOptionPane.showMessageDialog(null, e.getActionCommand());
 		switch (e.getActionCommand()) {
-			case "Начать":
+			case "Start":
 				Handler.game.startGame();
 				break;
-			case "Пауза":
+			case "Pause":
 				Handler.game.pauseGame();
 				break;
-			case "Продолжить":
+			case "Continue":
 				Handler.game.resumeGame();
 				break;
-			case "Правила игры":
+			case "Rules":
 				Handler.game.helpGame();
 				break;
-			case "Выход":
+			case "Exit":
 				System.exit(0);
 				break;
 		}

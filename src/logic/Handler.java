@@ -22,20 +22,17 @@ public class Handler {
 	 */
 	public static String pause = "not";
 	public Handler() throws FileNotFoundException, IOException {
-		//конфигурация игры
+		// Game configuration.
 		game = new Game(new GameMenu(), new Battlefield());
 		
-		//основной фрейм
-		mainFrame = new JFrame("Зенитка");
+		// Main frame.
+		mainFrame = new JFrame("Ack-ack");
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.setResizable(false);
 		mainFrame.setSize(900, 600);
 		mainFrame.setBackground(new Color(252, 233, 192));
 		mainFrame.setJMenuBar(game.getMenuBar());
 		mainFrame.add(game.getBattlefield());
-
-		/*mainFrame.setPreferredSize(new Dimension(900, 500));
-		mainFrame.pack();*/
 		mainFrame.setVisible(true);
 		game.pauseGame();
 	}
