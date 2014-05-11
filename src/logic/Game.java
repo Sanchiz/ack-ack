@@ -26,7 +26,7 @@ public class Game {
 		this.setBattlefield(battlefield);
 		try { 
 			AudioPlayer p = AudioPlayer.player;
-			AudioStream as = new AudioStream(new FileInputStream("sound/music.wav"));
+			AudioStream as = new AudioStream(this.getClass().getClassLoader().getResourceAsStream("music.wav"));
 			p.start(as);
 		}
 		catch(IOException IOE){
@@ -88,7 +88,7 @@ public class Game {
 			if (battlefield.getShotFreq() <= battlefield.getCurrentShot()) {
 				battlefield.getMuzzle().setFire(true);
 				try {
-					as = new AudioStream(new FileInputStream("sound/shot.wav"));
+					as = new AudioStream(this.getClass().getClassLoader().getResourceAsStream("shot.wav"));
 				} catch (FileNotFoundException e1) {
 					e1.printStackTrace();
 				} catch (IOException e1) {
