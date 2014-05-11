@@ -169,6 +169,7 @@ public class Battlefield extends JPanel implements ActionListener {
 					"- After certain time a speed of the plane will increase\n" +
 					"- Task - shoot down all plane within a certain time\n" +
 					"- Won - shoot all the planes on 3 levels\n" + 
+					"- Keyboard: Right Ctrl - shoot, ← and →0 arrow - move the cannon\n" + 
 					"- Lose - missing plane", 200, 100);
 		}
 		else {
@@ -217,10 +218,10 @@ public class Battlefield extends JPanel implements ActionListener {
 			g.setFont(new Font("Serif", Font.BOLD | Font.ITALIC, 19));
 			g.setColor(Color.BLACK);
 			((Graphics2D) g).setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-			drawString(g, "Сбито самолетов: " + shotPlains, 80, 500);
+			drawString(g, "Plane kills: " + shotPlains, 80, 500);
 			g.setFont(new Font("Serif", Font.BOLD | Font.ITALIC, 14));
-			drawString(g, "Уровень " + level, 700, 480);
-			drawString(g, "До след. уровня  " + (levelTime - currentTime) / 60 / 60, 700, 510);
+			drawString(g, "Level " + level, 700, 480);
+			drawString(g, "For next. level  " + (levelTime - currentTime) / 60 / 60, 700, 510);
 			checkHit();
 		}
 	}
