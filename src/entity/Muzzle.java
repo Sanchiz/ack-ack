@@ -59,7 +59,7 @@ public class Muzzle {
 		this.state = 0;
 		muzzleModels = new ArrayList<Image>();
 		for(int i = 0; i < stateCount; i++) {
-			muzzleModels.add(new ImageIcon("res/muzzle_" + i + ".png").getImage());
+			muzzleModels.add(new ImageIcon(this.getClass().getClassLoader().getResource("muzzle_" + i + ".png")).getImage());
 		}
 	}
 	public void paint(Graphics g, Dimension dim) {

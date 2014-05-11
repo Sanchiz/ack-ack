@@ -28,7 +28,7 @@ public class Whizbang {
 	private double angle;
 	private AffineTransform muzzleTrans;
 	private AffineTransform trans;
-	private Image whizbangModel = new ImageIcon("res/whizbang.png").getImage();
+	private Image whizbangModel = new ImageIcon(this.getClass().getClassLoader().getResource("whizbang.png")).getImage();
 	private int speed;
 	private int muzzleX;
 	private int muzzleY;

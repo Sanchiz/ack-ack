@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
 import logic.Handler;
 
 public class Cannon {
-	private Image cannonModel = new ImageIcon("res/cannon.png").getImage();
+	private Image cannonModel = new ImageIcon(this.getClass().getClassLoader().getResource("cannon.png")).getImage();
 
 	public void paint(Graphics g, Dimension dim) {
 		g.drawImage(cannonModel, (dim.width / 2) - cannonModel.getWidth(null) / 2, dim.height - 100, null);

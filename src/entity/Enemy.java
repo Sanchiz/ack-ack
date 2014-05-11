@@ -42,7 +42,7 @@ public class Enemy {
 		this.speed = speed;
 		enemyModels = new ArrayList<Image>();
 		for(int i = 0; i < stateCount; i++) {
-			enemyModels.add(new ImageIcon("res/enemy_" + i + ".png").getImage());
+			enemyModels.add(new ImageIcon(this.getClass().getClassLoader().getResource("enemy_" + i + ".png")).getImage());
 		}
 	}
 	
