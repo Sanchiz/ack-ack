@@ -32,8 +32,8 @@ public class Battlefield extends JPanel implements ActionListener {
 	private Image battlefieldBg = new ImageIcon(this.getClass().getClassLoader().getResource("bg_battlefield.png")).getImage();
 	private Image battlefieldClouds = new ImageIcon(this.getClass().getClassLoader().getResource("battlefield_clouds.png")).getImage();
 	private Image menuLogo = new ImageIcon(this.getClass().getClassLoader().getResource("menu_logo.png")).getImage();
-	//private Image loseLogo = new ImageIcon(this.getClass().getClassLoader().getResource("menu_logo_lose.png")).getImage();
-	//private Image winLogo = new ImageIcon(this.getClass().getClassLoader().getResource("menu_logo_win.png")).getImage();
+	private Image loseLogo = new ImageIcon(this.getClass().getClassLoader().getResource("menu_logo_lose.png")).getImage();
+	private Image winLogo = new ImageIcon(this.getClass().getClassLoader().getResource("menu_logo_win.png")).getImage();
 	private Timer cloudTimer = new Timer(10, this);
 
 	private int level = 1;
@@ -150,10 +150,10 @@ public class Battlefield extends JPanel implements ActionListener {
 				g.drawImage(menuLogo, (dim.width / 2) - menuLogo.getWidth(null) / 2, (dim.height / 2) - menuLogo.getHeight(null) / 2, null);	
 			}
 			else if (Handler.pause.equals("lose")) {
-				//g.drawImage(loseLogo, (dim.width / 2) - loseLogo.getWidth(null) / 2, (dim.height / 2) - loseLogo.getHeight(null) / 2, null);
+				g.drawImage(loseLogo, (dim.width / 2) - loseLogo.getWidth(null) / 2, (dim.height / 2) - loseLogo.getHeight(null) / 2, null);
 			}
 			else if (Handler.pause.equals("win")) {
-				//g.drawImage(winLogo, (dim.width / 2) - winLogo.getWidth(null) / 2, (dim.height / 2) - winLogo.getHeight(null) / 2, null);
+				g.drawImage(winLogo, (dim.width / 2) - winLogo.getWidth(null) / 2, (dim.height / 2) - winLogo.getHeight(null) / 2, null);
 			}
 		}
 		else if (Handler.pause.equals("help")) {
